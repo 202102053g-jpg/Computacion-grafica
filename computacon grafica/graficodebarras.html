@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Gráfico de Barras con Porcentajes</title>
+</head>
+<body>
+  <h2>Ejercicio 3: Gráfico de Barras con Porcentajes</h2>
+  <h2>Clarck Bravo</h2>
+  <canvas id="barChart" width="600" height="400" style="border:2px solid black;"></canvas>
+
+  <script>
+    var canvas = document.getElementById("barChart");
+    var ctx = canvas.getContext("2d");
+
+    // Valores en porcentaje
+    var porcentajes = [50, 60, 70, 90, 100];
+    var colores = ["red", "blue", "green", "yellow", "purple"];
+
+    var anchoBarra = 60;
+    var espacio = 30;
+
+    for (var i = 0; i < porcentajes.length; i++) {
+      var valor = porcentajes[i];
+      var altura = (valor / 100) * (canvas.height - 50); // Escalar al alto del canvas
+      var x = 50 + i * (anchoBarra + espacio);
+      var y = canvas.height - altura; // pegado abajo
+
+      // Dibujar barra
+      ctx.fillStyle = colores[i];
+      ctx.fillRect(x, y, anchoBarra, altura);
+
+      // Etiqueta arriba de la barra
+      ctx.fillStyle = "black";
+      ctx.font = "16px Arial";
+      ctx.fillText(valor + "%", x + 10, y - 10);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CUADRADO ARRIBA Y TRIÁNGULO ABAJO</title>
+</head>
+<body>
+    <h2>CUADRADO ARRIBA Y TRIÁNGULO </h2>
+    <h2>Clarck Bravo</h2>
+    <canvas id="myCanvas" width="500" height="500" style="border:4px solid black;"></canvas>
+
+    <script>
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+
+        // Dibujar cuadrado (arriba)
+        ctx.beginPath();
+        ctx.rect(200, 50, 100, 100);  // x,y , ancho, alto
+        ctx.fillStyle = "red";
+        ctx.fill();
+        ctx.stroke();
+
+        // Dibujar línea de separación en el medio
+        ctx.beginPath();
+        ctx.moveTo(0, 250);   // inicio en el borde izquierdo
+        ctx.lineTo(500, 250); // hasta el borde derecho
+        ctx.strokeStyle = "black";
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        // Dibujar triángulo (abajo)
+        ctx.beginPath();
+        ctx.moveTo(250, 300);  // vértice superior del triángulo
+        ctx.lineTo(300, 400);  // vértice inferior derecho
+        ctx.lineTo(200, 400);  // vértice inferior izquierdo
+        ctx.closePath();
+        ctx.fillStyle = "lightcoral";
+        ctx.fill();
+        ctx.stroke();
+    </script>
+</body>
+</html>

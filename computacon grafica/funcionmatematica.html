@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Función y = x^2</title>
+</head>
+<body>
+  <h2>Ejercicio 4: Graficar y = x^2</h2>
+  <canvas id="funcion" width="500" height="400" style="border:2px solid black;"></canvas>
+
+  <script>
+    var canvas = document.getElementById("funcion");
+    var ctx = canvas.getContext("2d");
+
+    // Dibujar ejes
+    ctx.beginPath();
+    ctx.moveTo(250, 0);   // eje Y
+    ctx.lineTo(250, 400);
+    ctx.moveTo(0, 200);   // eje X
+    ctx.lineTo(500, 200);
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+
+    // Graficar y = x^2
+    ctx.beginPath();
+    ctx.strokeStyle = "blue";
+
+    for (var x = -10; x <= 10; x += 0.1) {
+      var y = x * x;
+
+      // Escalado para que se vea en el canvas
+      var px = 250 + x * 20;   // mover eje X al centro
+      var py = 200 - y * 5;    // invertir eje Y y escalar
+
+      if (x === -10) {
+        ctx.moveTo(px, py);
+      } else {
+        ctx.lineTo(px, py);
+      }
+    }
+    ctx.stroke();
+  </script>
+</body>
+</html>
