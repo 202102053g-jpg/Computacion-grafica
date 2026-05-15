@@ -1,2 +1,0 @@
-# Computacion-grafica
-Clases
